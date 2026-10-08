@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Winter Is Coming — Baby Shower</title>
+<meta name="description" content="Winter is coming… and so is our little wolf. Baby shower — November 07, 16:00h, Maison Garet.">
+<meta property="og:title" content="Winter Is Coming — Baby Shower">
+<meta property="og:description" content="November 07 · 16:00h · Maison Garet. Send your raven by Oct 22.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#E8F2F7;--ink:#1B2B40;--muted:#4A6278;--line:#B9CFDC;--blue:#23408E}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--sky);color:var(--ink)}
+body{font-family:'Cinzel',serif;display:flex;flex-direction:column;align-items:center;padding:12px 0 0}
+a{color:var(--ink)}a:hover{color:var(--blue)}
+.card-wrap{position:relative;overflow:hidden;border-radius:6px;box-shadow:0 18px 50px rgba(27,43,64,.16)}
+.card{position:absolute;left:0;top:0;transform-origin:0 0}
+.reply-cta{margin:22px 0 8px;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 26px;border-radius:4px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;letter-spacing:.16em;font-size:14px}
+.reply-cta:hover{color:#fff;background:#24395A}
+.rsvp{width:100%;max-width:640px;padding:28px 16px 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.rsvp h2{margin:8px 0 0;font-size:clamp(28px,6vw,40px);font-weight:600;letter-spacing:.04em;line-height:1.1}
+.rsvp .by{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--muted);margin-top:8px}
+.panel{width:100%;margin-top:22px;padding:24px 20px;background:rgba(255,255,255,.78);border:1px solid #C9DCE7;border-radius:6px;box-shadow:0 10px 30px rgba(27,43,64,.08);text-align:left}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.label{font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+input[type=text],input[type=date],textarea{width:100%;min-height:46px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:4px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ink)}
+input[type=date]{font-family:'Jost',sans-serif;font-size:16px}
+textarea{resize:vertical;line-height:1.3}
+input::placeholder,textarea::placeholder{color:#8AA3B5;font-style:italic}
+input:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(35,64,142,.15)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.choice{min-height:56px;padding:6px 12px;border-radius:4px;border:1px solid var(--line);background:#fff;color:var(--ink);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;cursor:pointer}
+.choice[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.stepper{display:flex;align-items:center;gap:14px;min-height:46px}
+.stepper button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:20px;cursor:pointer}
+.stepper output{font-family:'Cormorant Garamond',serif;font-size:28px;min-width:24px;text-align:center}
+.actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:6px}
+.registry{display:inline-flex;align-items:center;gap:8px;padding:10px 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:22px;text-underline-offset:4px}
+.send{min-height:52px;padding:0 28px;border:none;border-radius:4px;background:var(--ink);color:#fff;font-family:'Cinzel',serif;font-size:14px;font-weight:600;letter-spacing:.16em;cursor:pointer}
+.send:disabled{opacity:.6;cursor:wait}
+.error{font-family:'Jost',sans-serif;font-size:14px;color:#A12A2A;margin:0 0 12px;min-height:1px}
+.thanks{display:none;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:30px 10px}
+.thanks h3{margin:0;font-size:30px;font-weight:600}
+.thanks p{margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--muted);max-width:420px}
+.thanks button{min-height:44px;border:none;background:transparent;color:var(--muted);font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:underline;cursor:pointer}
+.panel.done form{display:none}.panel.done .thanks{display:flex}
+.footer-art{display:block;width:100%;max-width:700px;margin-top:28px}
+.footer-line{width:100%;background:#D3E4EE;text-align:center;font-size:12px;font-weight:700;letter-spacing:.2em;padding:0 12px 16px;margin-top:-1px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<main style="display:flex;flex-direction:column;align-items:center;width:100%">
+<div class="card-wrap" id="card-wrap">
+<div class="card" id="card">
+<div style="width: 700px; height: 980px; position: relative; overflow: hidden; background: #E8F2F7; color: #1B2B40; font-family: 'Cinzel', serif">
+<svg aria-hidden="true" width="700" height="980" viewBox="0 0 700 980" style="position: absolute; left: 0; top: 0">
+<defs>
+<clipPath id="tl-tall"><path d="M0 0H160V300L80 262L0 300Z"></path></clipPath>
+<clipPath id="tl-short"><path d="M0 0H120V230L60 200L0 230Z"></path></clipPath>
+</defs>
+
+<g fill="none" stroke="#8FB8CC" stroke-linecap="round" stroke-linejoin="round">
+<g transform="translate(34 30) scale(1.5)" stroke-width="1.6" opacity="0.7"><path d="M0 -12V12M-10.4 -6L10.4 6M-10.4 6L10.4 -6"></path><path d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(-60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path></g>
+<g transform="translate(26 112) scale(0.8)" stroke-width="1.6" opacity="0.55"><path d="M0 -12V12M-10.4 -6L10.4 6M-10.4 6L10.4 -6"></path><path d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(-60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path></g>
+<g transform="translate(666 32) scale(1.2)" stroke-width="1.6" opacity="0.65"><path d="M0 -12V12M-10.4 -6L10.4 6M-10.4 6L10.4 -6"></path><path d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(-60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path></g>
+<g transform="translate(676 116) scale(0.7)" stroke-width="1.6" opacity="0.55"><path d="M0 -12V12M-10.4 -6L10.4 6M-10.4 6L10.4 -6"></path><path d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(-60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path></g>
+<g transform="translate(30 560) scale(1.1)" stroke-width="1.6" opacity="0.6"><path d="M0 -12V12M-10.4 -6L10.4 6M-10.4 6L10.4 -6"></path><path d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(-60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path></g>
+<g transform="translate(672 540) scale(1.3)" stroke-width="1.6" opacity="0.6"><path d="M0 -12V12M-10.4 -6L10.4 6M-10.4 6L10.4 -6"></path><path d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path><path transform="rotate(-60)" d="M-3 -9L0 -6.5L3 -9M-3 9L0 6.5L3 9"></path></g>
+</g>
+
+<g fill="#9CC3D6" opacity="0.8">
+<circle cx="40" cy="160" r="2"></circle><circle cx="660" cy="170" r="2.2"></circle><circle cx="30" cy="300" r="1.6"></circle><circle cx="672" cy="330" r="1.8"></circle>
+<circle cx="60" cy="480" r="2.2"></circle><circle cx="640" cy="470" r="1.7"></circle><circle cx="90" cy="640" r="1.8"></circle><circle cx="620" cy="660" r="2.2"></circle>
+<circle cx="40" cy="760" r="1.6"></circle><circle cx="670" cy="770" r="2"></circle><circle cx="280" cy="30" r="1.6"></circle><circle cx="430" cy="26" r="2"></circle>
+<circle cx="150" cy="790" r="1.7"></circle><circle cx="540" cy="800" r="1.7"></circle><circle cx="120" cy="420" r="1.4"></circle><circle cx="590" cy="410" r="1.4"></circle>
+<circle cx="210" cy="720" r="1.6"></circle><circle cx="500" cy="730" r="1.6"></circle>
+</g>
+
+<rect x="70" y="62" width="560" height="12" rx="6" fill="#7C8A96"></rect>
+<rect x="68" y="57" width="564" height="7" rx="3.5" fill="#FFFFFF"></rect>
+<g fill="#A8CFE2" stroke="#8FB8CC" stroke-width="0.6">
+<polygon points="74,74 80,74 77,96"></polygon><polygon points="82,74 90,74 86,108"></polygon>
+<polygon points="260,74 266,74 263,92"></polygon><polygon points="268,74 276,74 272,112"></polygon><polygon points="278,74 284,74 281,98"></polygon>
+<polygon points="416,74 422,74 419,100"></polygon><polygon points="424,74 432,74 428,116"></polygon><polygon points="434,74 440,74 437,94"></polygon>
+<polygon points="610,74 618,74 614,106"></polygon><polygon points="620,74 626,74 623,92"></polygon>
+</g>
+<circle cx="66" cy="68" r="10" fill="#8FB8CC"></circle>
+<circle cx="634" cy="68" r="10" fill="#8FB8CC"></circle>
+
+<g style="filter: drop-shadow(0 8px 14px rgba(27,43,64,0.18))">
+<g transform="translate(96 74)">
+<g clip-path="url(#tl-tall)">
+<rect x="0" y="0" width="54" height="300" fill="#23408E"></rect>
+<rect x="53" y="0" width="54" height="300" fill="#FFFFFF"></rect>
+<rect x="106" y="0" width="54" height="300" fill="#C8323A"></rect>
+</g>
+<path d="M9 9H151V285L80 251L9 285Z" fill="none" stroke="#8FB8CC" stroke-width="2"></path>
+<circle cx="80" cy="140" r="46" fill="#FFFFFF" stroke="#8FB8CC" stroke-width="3"></circle>
+<g transform="translate(80 138) scale(1.02)" fill="#23408E">
+<path d="M0 -38C12 -24 12 -8 0 4C-12 -8 -12 -24 0 -38Z"></path><path d="M4 4C10 -10 24 -16 32 -8C38 -2 34 10 26 10C30 4 26 -2 20 0C14 2 10 8 8 12Z"></path><path d="M-4 4C-10 -10 -24 -16 -32 -8C-38 -2 -34 10 -26 10C-30 4 -26 -2 -20 0C-14 2 -10 8 -8 12Z"></path><path d="M-16 10H16V17H-16Z"></path><path d="M-6 17L0 34L6 17Z"></path><path d="M-12 17C-14 26 -22 28 -24 24C-18 24 -16 20 -16 17Z"></path><path d="M12 17C14 26 22 28 24 24C18 24 16 20 16 17Z"></path>
+</g>
+</g>
+
+<g transform="translate(444 74)">
+<g clip-path="url(#tl-tall)">
+<rect x="0" y="0" width="54" height="300" fill="#0B7A43"></rect>
+<rect x="53" y="0" width="54" height="300" fill="#FFFFFF"></rect>
+<rect x="106" y="0" width="54" height="300" fill="#0B7A43"></rect>
+</g>
+<path d="M9 9H151V285L80 251L9 285Z" fill="none" stroke="#8FB8CC" stroke-width="2"></path>
+<circle cx="80" cy="140" r="46" fill="#FFFFFF" stroke="#8FB8CC" stroke-width="3"></circle>
+<g transform="translate(80 140)" fill="none" stroke="#0B5E35" stroke-linecap="round">
+<path transform="translate(-4 0) scale(1.1)" stroke-width="4" d="M0 0a5 5 0 0 1 10 0a10 10 0 0 1 -20 0a15 15 0 0 1 30 0a20 20 0 0 1 -40 0a25 25 0 0 1 50 0"></path>
+</g>
+<g fill="#8FB8CC">
+<circle cx="80" cy="80" r="4"></circle><circle cx="80" cy="200" r="4"></circle><circle cx="38" cy="98" r="3.5"></circle><circle cx="122" cy="98" r="3.5"></circle><circle cx="38" cy="182" r="3.5"></circle><circle cx="122" cy="182" r="3.5"></circle>
+</g>
+<path d="M30 226l10 -12 10 12 10 -12 10 12 10 -12 10 12 10 -12 10 12 10 -12 10 12" fill="none" stroke="#8FB8CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</g>
+
+<g transform="translate(290 74)">
+<g clip-path="url(#tl-short)">
+<rect x="0" y="0" width="31" height="230" fill="#23408E"></rect>
+<rect x="30" y="0" width="60" height="230" fill="#FFFFFF"></rect>
+<rect x="89" y="0" width="31" height="230" fill="#0B7A43"></rect>
+</g>
+<path d="M7 7H113V218L60 190L7 218Z" fill="none" stroke="#8FB8CC" stroke-width="1.5"></path>
+<g transform="translate(60 46)" fill="none" stroke="#23408E" stroke-width="2" stroke-linecap="round">
+<path d="M0 -14V14M-12 -7L12 7M-12 7L12 -7M-3.5 -11L0 -8L3.5 -11M-3.5 11L0 8L3.5 11"></path>
+</g>
+<polygon transform="translate(60 112) scale(0.68)" fill="#C8323A" points="0,-40 6,-28 14,-32 11,-14 24,-24 28,-16 36,-18 32,-6 40,-2 22,10 26,18 4,14 4,32 -4,32 -4,14 -26,18 -22,10 -40,-2 -32,-6 -36,-18 -28,-16 -24,-24 -11,-14 -14,-32 -6,-28"></polygon>
+<g transform="translate(60 162)" fill="#0B5E35"><circle cx="-9" r="3"></circle><circle r="3"></circle><circle cx="9" r="3"></circle></g>
+</g>
+</g>
+
+<path d="M0 930H700V980H0Z" fill="#D3E4EE"></path>
+<path d="M-20 930C40 900 110 866 200 852C260 844 320 852 380 868C440 884 500 904 560 930Z" fill="#CCDCE6"></path>
+<path d="M30 908C80 884 130 862 200 853C260 845 320 853 380 869C420 880 450 890 480 902" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path>
+<g fill="#A9C0D0">
+<path d="M0 930V904H40V898H150V906H300V902H430V908H500V904H700V930Z"></path>
+<rect x="14" y="882" width="22" height="48"></rect>
+<rect x="40" y="860" width="26" height="70"></rect><rect x="52" y="846" width="2" height="14"></rect>
+<rect x="70" y="838" width="34" height="92"></rect><rect x="78" y="828" width="18" height="12"></rect>
+<rect x="108" y="872" width="20" height="58"></rect>
+<rect x="132" y="886" width="18" height="44"></rect>
+<rect x="166" y="848" width="40" height="82"></rect><polygon points="166,848 186,830 206,848"></polygon>
+<rect x="210" y="868" width="24" height="62"></rect>
+<rect x="238" y="878" width="30" height="52"></rect>
+<rect x="272" y="890" width="22" height="40"></rect>
+<rect x="330" y="864" width="72" height="66"></rect>
+<rect x="406" y="878" width="26" height="52"></rect><rect x="412" y="870" width="14" height="10"></rect>
+<rect x="436" y="888" width="24" height="42"></rect>
+<path d="M500 904A18 14 0 0 1 536 904Z"></path><rect x="500" y="904" width="36" height="26"></rect>
+<rect x="552" y="896" width="10" height="34"></rect><polygon points="552,896 557,866 562,896"></polygon>
+<rect x="650" y="888" width="50" height="42"></rect>
+</g>
+<g fill="#FFFFFF">
+<rect x="14" y="880" width="22" height="3" rx="1.5"></rect><rect x="40" y="858" width="26" height="3" rx="1.5"></rect><rect x="78" y="826" width="18" height="3" rx="1.5"></rect><rect x="108" y="870" width="20" height="3" rx="1.5"></rect><rect x="132" y="884" width="18" height="3" rx="1.5"></rect><rect x="210" y="866" width="24" height="3" rx="1.5"></rect><rect x="238" y="876" width="30" height="3" rx="1.5"></rect><rect x="272" y="888" width="22" height="3" rx="1.5"></rect><rect x="330" y="862" width="72" height="3" rx="1.5"></rect><rect x="412" y="868" width="14" height="3" rx="1.5"></rect><rect x="436" y="886" width="24" height="3" rx="1.5"></rect><rect x="650" y="886" width="50" height="3" rx="1.5"></rect>
+</g>
+<g fill="#FFFFFF" opacity="0.75">
+<rect x="76" y="850" width="4" height="3"></rect><rect x="90" y="866" width="4" height="3"></rect><rect x="80" y="890" width="4" height="3"></rect><rect x="48" y="872" width="4" height="3"></rect><rect x="176" y="862" width="4" height="3"></rect><rect x="192" y="884" width="4" height="3"></rect><rect x="340" y="876" width="4" height="3"></rect><rect x="360" y="876" width="4" height="3"></rect><rect x="380" y="876" width="4" height="3"></rect><rect x="360" y="896" width="4" height="3"></rect><rect x="216" y="884" width="4" height="3"></rect><rect x="412" y="892" width="4" height="3"></rect>
+</g>
+<g fill="none" stroke="#6F8FA6" stroke-linecap="round">
+<circle cx="612" cy="878" r="40" stroke-width="2.2"></circle>
+<circle cx="612" cy="878" r="34" stroke-width="0.8"></circle>
+<path transform="translate(612 878)" stroke-width="0.9" d="M-40 0H40M0 -40V40M-34.6 -20L34.6 20M-34.6 20L34.6 -20M-20 -34.6L20 34.6M-20 34.6L20 -34.6"></path>
+<path d="M612 878L594 930M612 878L630 930" stroke-width="3"></path>
+</g>
+<g fill="#6F8FA6" transform="translate(612 878)">
+<circle r="4"></circle><circle cx="42" cy="0" r="2.6"></circle><circle cx="36.4" cy="21" r="2.6"></circle><circle cx="21" cy="36.4" r="2.6"></circle><circle cx="0" cy="42" r="2.6"></circle><circle cx="-21" cy="36.4" r="2.6"></circle><circle cx="-36.4" cy="21" r="2.6"></circle><circle cx="-42" cy="0" r="2.6"></circle><circle cx="-36.4" cy="-21" r="2.6"></circle><circle cx="-21" cy="-36.4" r="2.6"></circle><circle cx="0" cy="-42" r="2.6"></circle><circle cx="21" cy="-36.4" r="2.6"></circle><circle cx="36.4" cy="-21" r="2.6"></circle>
+</g>
+<g fill="#A9C0D0" opacity="0.35">
+<rect x="70" y="932" width="34" height="18"></rect><rect x="166" y="932" width="40" height="14"></rect><rect x="330" y="932" width="72" height="12"></rect><rect x="604" y="932" width="16" height="22"></rect>
+</g>
+<path d="M30 952H130M180 960H320M380 950H520M560 964H680M90 972H230M420 974H560" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1.4" stroke-linecap="round"></path>
+</svg>
+<div style="position: absolute; left: 0; right: 0; top: 420px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 56px">
+<div style="font-size: 60px; font-weight: 600; line-height: 1; letter-spacing: 0.05em; color: #1B2B40; text-shadow: 0 2px 0 #FFFFFF, 0 0 16px rgba(255,255,255,0.9)">Winter is Coming</div>
+<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 23px; color: #4A6278; margin-top: 10px">…and so is our little wolf; forged in the North.</div>
+<div style="display: flex; align-items: center; gap: 12px; margin-top: 14px">
+<div style="width: 54px; height: 1px; background: #7FA9C0"></div>
+<svg aria-hidden="true" width="18" height="18" viewBox="-9 -9 18 18"><path d="M0 -8V8M-6.9 -4L6.9 4M-6.9 4L6.9 -4M-2.2 -6.4L0 -4.6L2.2 -6.4M-2.2 6.4L0 4.6L2.2 6.4" fill="none" stroke="#7FA9C0" stroke-width="1.3" stroke-linecap="round"></path></svg>
+<div style="width: 54px; height: 1px; background: #7FA9C0"></div>
+</div>
+<div style="font-size: 12px; letter-spacing: 0.26em; margin-top: 14px; color: #4A6278">A baby shower honoring</div>
+<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 32px; line-height: 1.15; margin-top: 4px">the future Ruler of House Egwuonwu-Garet</div>
+
+<div style="display: flex; gap: 26px; align-items: center; justify-content: center; margin-top: 16px; font-size: 14px; letter-spacing: 0.06em">
+<span style="display: flex; align-items: center; gap: 8px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4F7A94" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10H21M8 3V7M16 3V7"></path></svg>
+<span>November 07</span></span>
+<span style="display: flex; align-items: center; gap: 8px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4F7A94" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7V12L15 14"></path></svg>
+<span>16:00h</span></span>
+<span style="display: flex; align-items: center; gap: 8px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4F7A94" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 5 14.5 5 9.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+Maison Garet</span>
+</div>
+
+<a href="#" data-registry style="display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; padding: 8px 4px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 26px; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"></rect><path d="M3 12H21M12 8V21M12 8C10 4 6 4 6.5 6.5C7 8 12 8 12 8ZM12 8C14 4 18 4 17.5 6.5C17 8 12 8 12 8Z"></path></svg>
+View our Baby Registry</a>
+
+<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; margin-top: 8px; color: #4A6278">Garçon ou fille? Not even the maesters know.</div>
+</div>
+<div style="position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #1B2B40">RSVP · Send your raven by Oct 22</div>
+</div>
+</div>
+</div>
+
+<a class="reply-cta" href="#rsvp">Reply below
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5V19M5 12L12 19L19 12"></path></svg></a>
+
+<section class="rsvp" id="rsvp" aria-labelledby="rsvp-title">
+<svg aria-hidden="true" width="300" viewBox="160 30 380 150" style="max-width:80%;height:auto">
+<defs>
+<clipPath id="rb-tall"><path d="M0 0H160V300L80 262L0 300Z"></path></clipPath>
+<clipPath id="rb-short"><path d="M0 0H120V230L60 200L0 230Z"></path></clipPath>
+</defs>
+<rect x="176" y="44" width="348" height="10" rx="5" fill="#7C8A96"></rect>
+<rect x="174" y="40" width="352" height="6" rx="3" fill="#FFFFFF"></rect>
+<g fill="#A8CFE2" stroke="#8FB8CC" stroke-width="0.6">
+<polygon points="180,54 185,54 182.5,70"></polygon><polygon points="286,54 292,54 289,78"></polygon><polygon points="294,54 299,54 296.5,68"></polygon>
+<polygon points="400,54 406,54 403,74"></polygon><polygon points="408,54 413,54 410.5,66"></polygon><polygon points="514,54 519,54 516.5,72"></polygon>
+</g>
+<circle cx="172" cy="49" r="7" fill="#8FB8CC"></circle>
+<circle cx="528" cy="49" r="7" fill="#8FB8CC"></circle>
+
+<g style="filter: drop-shadow(0 6px 10px rgba(27,43,64,0.16))">
+<g transform="translate(196 54) scale(0.45)">
+<g clip-path="url(#rb-tall)"><rect width="54" height="300" fill="#23408E"></rect><rect x="53" width="54" height="300" fill="#FFFFFF"></rect><rect x="106" width="54" height="300" fill="#C8323A"></rect></g>
+<path d="M9 9H151V285L80 251L9 285Z" fill="none" stroke="#8FB8CC" stroke-width="4"></path>
+<circle cx="80" cy="140" r="46" fill="#FFFFFF" stroke="#8FB8CC" stroke-width="5"></circle>
+<g transform="translate(80 138) scale(1.02)" fill="#23408E"><path d="M0 -38C12 -24 12 -8 0 4C-12 -8 -12 -24 0 -38Z"></path><path d="M4 4C10 -10 24 -16 32 -8C38 -2 34 10 26 10C30 4 26 -2 20 0C14 2 10 8 8 12Z"></path><path d="M-4 4C-10 -10 -24 -16 -32 -8C-38 -2 -34 10 -26 10C-30 4 -26 -2 -20 0C-14 2 -10 8 -8 12Z"></path><path d="M-16 10H16V17H-16Z"></path><path d="M-6 17L0 34L6 17Z"></path></g>
+</g>
+<g transform="translate(314 54) scale(0.6)">
+<g clip-path="url(#rb-short)"><rect width="31" height="230" fill="#23408E"></rect><rect x="30" width="60" height="230" fill="#FFFFFF"></rect><rect x="89" width="31" height="230" fill="#0B7A43"></rect></g>
+<path d="M7 7H113V218L60 190L7 218Z" fill="none" stroke="#8FB8CC" stroke-width="2.5"></path>
+<polygon transform="translate(60 100) scale(0.68)" fill="#C8323A" points="0,-40 6,-28 14,-32 11,-14 24,-24 28,-16 36,-18 32,-6 40,-2 22,10 26,18 4,14 4,32 -4,32 -4,14 -26,18 -22,10 -40,-2 -32,-6 -36,-18 -28,-16 -24,-24 -11,-14 -14,-32 -6,-28"></polygon>
+</g>
+<g transform="translate(432 54) scale(0.45)">
+<g clip-path="url(#rb-tall)"><rect width="54" height="300" fill="#0B7A43"></rect><rect x="53" width="54" height="300" fill="#FFFFFF"></rect><rect x="106" width="54" height="300" fill="#0B7A43"></rect></g>
+<path d="M9 9H151V285L80 251L9 285Z" fill="none" stroke="#8FB8CC" stroke-width="4"></path>
+<circle cx="80" cy="140" r="46" fill="#FFFFFF" stroke="#8FB8CC" stroke-width="5"></circle>
+<path transform="translate(76 140) scale(1.1)" d="M0 0a5 5 0 0 1 10 0a10 10 0 0 1 -20 0a15 15 0 0 1 30 0a20 20 0 0 1 -40 0a25 25 0 0 1 50 0" fill="none" stroke="#0B5E35" stroke-width="5" stroke-linecap="round"></path>
+</g>
+</g>
+
+</svg>
+<h2 id="rsvp-title">Will you brave the cold?</h2>
+<div class="by">Send your raven by Oct 22</div>
+
+<div class="panel" id="panel">
+<form id="rsvp-form" novalidate>
+<div class="field">
+<label class="label" for="name">Your name(s)</label>
+<input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Claire &amp; Julien" required>
+</div>
+
+<div class="field" role="group" aria-labelledby="attend-label">
+<div class="label" id="attend-label">Will you join us?</div>
+<div class="choices">
+<button type="button" class="choice" data-attending="yes" aria-pressed="false">Joyfully — I'll brave the cold</button>
+<button type="button" class="choice" data-attending="no" aria-pressed="false">Regretfully — sending warm wishes</button>
+</div>
+</div>
+
+<div class="row2">
+<div class="field" id="guests-field">
+<div class="label" id="guests-label">Guests, you included</div>
+<div class="stepper" role="group" aria-labelledby="guests-label">
+<button type="button" id="dec" aria-label="One fewer guest">−</button>
+<output id="guests" aria-live="polite">1</output>
+<button type="button" id="inc" aria-label="One more guest">+</button>
+</div>
+</div>
+<div class="field">
+<label class="label" for="guess">Guess the arrival day</label>
+<input id="guess" name="guess" type="date">
+</div>
+</div>
+
+<div class="field">
+<label class="label" for="wish">A wish for the little wolf</label>
+<textarea id="wish" name="wish" rows="3" placeholder="May every winter be warm…"></textarea>
+</div>
+
+<p class="error" id="error" role="alert"></p>
+
+<div class="actions">
+<a class="registry" data-registry href="#" target="_blank" rel="noopener">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"></rect><path d="M3 12H21M12 8V21M12 8C10 4 6 4 6.5 6.5C7 8 12 8 12 8ZM12 8C14 4 18 4 17.5 6.5C17 8 12 8 12 8Z"></path></svg>
+Baby Registry</a>
+<button type="submit" class="send" id="send">Send my raven</button>
+</div>
+</form>
+
+<div class="thanks" id="thanks" aria-live="polite">
+<svg aria-hidden="true" width="64" height="64" viewBox="-11 -11 22 22"><path d="M0 -9V9M-7.8 -4.5L7.8 4.5M-7.8 4.5L7.8 -4.5M-2.2 -7.2L0 -5.2L2.2 -7.2M-2.2 7.2L0 5.2L2.2 7.2M-6.5 -1.6L-5 -3.4L-7.2 -4M6.5 1.6L5 3.4L7.2 4M-6.5 1.6L-5 3.4L-7.2 4M6.5 -1.6L5 -3.4L7.2 -4" fill="none" stroke="#7FA9C0" stroke-width="0.8" stroke-linecap="round"></path></svg>
+<h3 id="thanks-title">Your raven has flown</h3>
+<p id="thanks-body">See you November 07 at 16:00h, Maison Garet. Wrap up warm.</p>
+<button type="button" id="edit">Change my reply</button>
+</div>
+</div>
+</section>
+
+<svg class="footer-art" aria-hidden="true" viewBox="0 800 700 180" preserveAspectRatio="xMidYMax meet">
+<path d="M0 930H700V980H0Z" fill="#D3E4EE"></path>
+<path d="M-20 930C40 900 110 866 200 852C260 844 320 852 380 868C440 884 500 904 560 930Z" fill="#CCDCE6"></path>
+<path d="M30 908C80 884 130 862 200 853C260 845 320 853 380 869C420 880 450 890 480 902" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path>
+<g fill="#A9C0D0">
+<path d="M0 930V904H40V898H150V906H300V902H430V908H500V904H700V930Z"></path>
+<rect x="14" y="882" width="22" height="48"></rect>
+<rect x="40" y="860" width="26" height="70"></rect><rect x="52" y="846" width="2" height="14"></rect>
+<rect x="70" y="838" width="34" height="92"></rect><rect x="78" y="828" width="18" height="12"></rect>
+<rect x="108" y="872" width="20" height="58"></rect>
+<rect x="132" y="886" width="18" height="44"></rect>
+<rect x="166" y="848" width="40" height="82"></rect><polygon points="166,848 186,830 206,848"></polygon>
+<rect x="210" y="868" width="24" height="62"></rect>
+<rect x="238" y="878" width="30" height="52"></rect>
+<rect x="272" y="890" width="22" height="40"></rect>
+<rect x="330" y="864" width="72" height="66"></rect>
+<rect x="406" y="878" width="26" height="52"></rect><rect x="412" y="870" width="14" height="10"></rect>
+<rect x="436" y="888" width="24" height="42"></rect>
+<path d="M500 904A18 14 0 0 1 536 904Z"></path><rect x="500" y="904" width="36" height="26"></rect>
+<rect x="552" y="896" width="10" height="34"></rect><polygon points="552,896 557,866 562,896"></polygon>
+<rect x="650" y="888" width="50" height="42"></rect>
+</g>
+<g fill="#FFFFFF">
+<rect x="14" y="880" width="22" height="3" rx="1.5"></rect><rect x="40" y="858" width="26" height="3" rx="1.5"></rect><rect x="78" y="826" width="18" height="3" rx="1.5"></rect><rect x="108" y="870" width="20" height="3" rx="1.5"></rect><rect x="132" y="884" width="18" height="3" rx="1.5"></rect><rect x="210" y="866" width="24" height="3" rx="1.5"></rect><rect x="238" y="876" width="30" height="3" rx="1.5"></rect><rect x="272" y="888" width="22" height="3" rx="1.5"></rect><rect x="330" y="862" width="72" height="3" rx="1.5"></rect><rect x="412" y="868" width="14" height="3" rx="1.5"></rect><rect x="436" y="886" width="24" height="3" rx="1.5"></rect><rect x="650" y="886" width="50" height="3" rx="1.5"></rect>
+</g>
+<g fill="#FFFFFF" opacity="0.75">
+<rect x="76" y="850" width="4" height="3"></rect><rect x="90" y="866" width="4" height="3"></rect><rect x="80" y="890" width="4" height="3"></rect><rect x="48" y="872" width="4" height="3"></rect><rect x="176" y="862" width="4" height="3"></rect><rect x="192" y="884" width="4" height="3"></rect><rect x="340" y="876" width="4" height="3"></rect><rect x="360" y="876" width="4" height="3"></rect><rect x="380" y="876" width="4" height="3"></rect><rect x="360" y="896" width="4" height="3"></rect><rect x="216" y="884" width="4" height="3"></rect><rect x="412" y="892" width="4" height="3"></rect>
+</g>
+<g fill="none" stroke="#6F8FA6" stroke-linecap="round">
+<circle cx="612" cy="878" r="40" stroke-width="2.2"></circle>
+<circle cx="612" cy="878" r="34" stroke-width="0.8"></circle>
+<path transform="translate(612 878)" stroke-width="0.9" d="M-40 0H40M0 -40V40M-34.6 -20L34.6 20M-34.6 20L34.6 -20M-20 -34.6L20 34.6M-20 34.6L20 -34.6"></path>
+<path d="M612 878L594 930M612 878L630 930" stroke-width="3"></path>
+</g>
+<g fill="#6F8FA6" transform="translate(612 878)">
+<circle r="4"></circle><circle cx="42" cy="0" r="2.6"></circle><circle cx="36.4" cy="21" r="2.6"></circle><circle cx="21" cy="36.4" r="2.6"></circle><circle cx="0" cy="42" r="2.6"></circle><circle cx="-21" cy="36.4" r="2.6"></circle><circle cx="-36.4" cy="21" r="2.6"></circle><circle cx="-42" cy="0" r="2.6"></circle><circle cx="-36.4" cy="-21" r="2.6"></circle><circle cx="-21" cy="-36.4" r="2.6"></circle><circle cx="0" cy="-42" r="2.6"></circle><circle cx="21" cy="-36.4" r="2.6"></circle><circle cx="36.4" cy="-21" r="2.6"></circle>
+</g>
+<g fill="#A9C0D0" opacity="0.35">
+<rect x="70" y="932" width="34" height="18"></rect><rect x="166" y="932" width="40" height="14"></rect><rect x="330" y="932" width="72" height="12"></rect><rect x="604" y="932" width="16" height="22"></rect>
+</g>
+<path d="M30 952H130M180 960H320M380 950H520M560 964H680M90 972H230M420 974H560" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1.4" stroke-linecap="round"></path>
+</svg>
+<div class="footer-line">November 07 · 16:00h · Maison Garet</div>
+</main>
+
+<script>
+/* ===== Settings: fill these two in (see README.md) ===== */
+const APPS_SCRIPT_URL = ""; // your Google Apps Script "Web app" URL, ends with /exec
+const REGISTRY_URL = "";    // link to your baby registry
+/* ======================================================== */
+
+(function () {
+  // Scale the 700×980 card to fit the screen
+  const wrap = document.getElementById('card-wrap');
+  const card = document.getElementById('card');
+  function fit() {
+    const w = Math.min(700, document.documentElement.clientWidth - 24);
+    const s = w / 700;
+    card.style.transform = 'scale(' + s + ')';
+    wrap.style.width = w + 'px';
+    wrap.style.height = Math.round(980 * s) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+
+  // Registry links
+  document.querySelectorAll('[data-registry]').forEach(function (a) {
+    if (REGISTRY_URL) { a.href = REGISTRY_URL; a.target = '_blank'; a.rel = 'noopener'; }
+    else { a.addEventListener('click', function (e) { e.preventDefault(); alert('The registry link is coming soon!'); }); }
+  });
+
+  // Form state
+  let attending = '';
+  let guests = 1;
+  const form = document.getElementById('rsvp-form');
+  const panel = document.getElementById('panel');
+  const err = document.getElementById('error');
+  const out = document.getElementById('guests');
+  const guestsField = document.getElementById('guests-field');
+  const send = document.getElementById('send');
+
+  document.querySelectorAll('.choice').forEach(function (b) {
+    b.addEventListener('click', function () {
+      attending = b.dataset.attending;
+      document.querySelectorAll('.choice').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      guestsField.style.opacity = attending === 'no' ? '0.4' : '1';
+      err.textContent = '';
+    });
+  });
+  document.getElementById('inc').addEventListener('click', function () { guests = Math.min(10, guests + 1); out.textContent = guests; });
+  document.getElementById('dec').addEventListener('click', function () { guests = Math.max(1, guests - 1); out.textContent = guests; });
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    if (!name) { err.textContent = 'Please tell us your name.'; document.getElementById('name').focus(); return; }
+    if (!attending) { err.textContent = 'Please choose whether you can join us.'; return; }
+    err.textContent = '';
+
+    const data = new URLSearchParams({
+      name: name,
+      attending: attending === 'yes' ? 'Yes' : 'No',
+      guests: attending === 'yes' ? String(guests) : '0',
+      guess: form.guess.value,
+      wish: form.wish.value.trim()
+    });
+
+    send.disabled = true; send.textContent = 'Sending…';
+    try {
+      if (!APPS_SCRIPT_URL) throw new Error('not-configured');
+      await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data });
+      document.getElementById('thanks-title').textContent = attending === 'no' ? 'We will miss you' : 'Your raven has flown';
+      document.getElementById('thanks-body').textContent = attending === 'no'
+        ? 'Thank you for the warm wishes. We will share a picture of the little wolf.'
+        : 'See you November 07 at 16:00h, Maison Garet. Wrap up warm.';
+      panel.classList.add('done');
+    } catch (x) {
+      err.textContent = x.message === 'not-configured'
+        ? 'RSVPs are not open yet — please try again soon.'
+        : 'Your raven got lost in the storm. Please check your connection and try again.';
+    } finally {
+      send.disabled = false; send.textContent = 'Send my raven';
+    }
+  });
+
+  document.getElementById('edit').addEventListener('click', function () { panel.classList.remove('done'); });
+})();
+</script>
+</body>
+</html>
