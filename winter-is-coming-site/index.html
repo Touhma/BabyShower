@@ -33,12 +33,12 @@ input::placeholder,textarea::placeholder{color:#8AA3B5;font-style:italic}
 input:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(35,64,142,.15)}
 button:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.choice{min-height:56px;padding:6px 12px;border-radius:4px;border:1px solid var(--line);background:#fff;color:var(--ink);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;cursor:pointer}
+.choice{min-height:64px;padding:8px 12px;line-height:1.2;border-radius:4px;border:1px solid var(--line);background:#fff;color:var(--ink);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;cursor:pointer}
 .choice[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
 .stepper{display:flex;align-items:center;gap:14px;min-height:46px}
 .stepper button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:20px;cursor:pointer}
-.stepper output{font-family:'Cormorant Garamond',serif;font-size:28px;min-width:24px;text-align:center}
+.stepper output{font-family:'Jost',sans-serif;font-size:24px;min-width:24px;text-align:center}
 .actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:6px}
 .registry{display:inline-flex;align-items:center;gap:8px;padding:10px 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:22px;text-underline-offset:4px}
 .send{min-height:52px;padding:0 28px;border:none;border-radius:4px;background:var(--ink);color:#fff;font-family:'Cinzel',serif;font-size:14px;font-weight:600;letter-spacing:.16em;cursor:pointer}
@@ -266,8 +266,8 @@ View our Baby Registry</a>
 <div class="field" role="group" aria-labelledby="attend-label">
 <div class="label" id="attend-label">Will you join us?</div>
 <div class="choices">
-<button type="button" class="choice" data-attending="yes" aria-pressed="false">Joyfully — I'll brave the cold</button>
-<button type="button" class="choice" data-attending="no" aria-pressed="false">Regretfully — sending warm wishes</button>
+<button type="button" class="choice" data-attending="yes" aria-pressed="false">Joyfully —<br>I'll brave the cold</button>
+<button type="button" class="choice" data-attending="no" aria-pressed="false">Regretfully —<br>sending warm wishes</button>
 </div>
 </div>
 
