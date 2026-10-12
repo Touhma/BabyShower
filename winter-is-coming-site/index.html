@@ -514,7 +514,6 @@ View Baby Registry
 <button type="button" class="choice" data-attending="no" aria-pressed="false">Regretfully —<br>I'll send warm wishes</button>
 </div>
 </div>
-<div class="row2">
 <div class="field" id="guests-field">
 <div class="label" id="guests-label">Guests, you included</div>
 <div class="stepper" role="group" aria-labelledby="guests-label">
@@ -522,15 +521,6 @@ View Baby Registry
 <output id="guests" aria-live="polite">1</output>
 <button type="button" id="inc" aria-label="One more guest">+</button>
 </div>
-</div>
-<div class="field">
-<label class="label" for="guess">Guess the arrival day</label>
-<input id="guess" name="guess" type="date">
-</div>
-</div>
-<div class="field">
-<label class="label" for="wish">A wish for the littlest wolf</label>
-<textarea id="wish" name="wish" rows="3" placeholder="May every winter be warm…"></textarea>
 </div>
 <p class="error" id="error" role="alert"></p>
 <button type="submit" class="send" id="send">Send my raven</button>
@@ -650,9 +640,7 @@ const REGISTRY_URL = "https://www.amazon.ca/baby-reg/thomas-garet-december-2026-
     const data = new URLSearchParams({
       name: name,
       attending: attending === 'yes' ? 'Yes' : 'No',
-      guests: attending === 'yes' ? String(guests) : '0',
-      guess: document.getElementById('guess').value,
-      wish: document.getElementById('wish').value.trim()
+      guests: attending === 'yes' ? String(guests) : '0'
     });
     send.disabled = true; send.textContent = 'Sending…';
     try {
