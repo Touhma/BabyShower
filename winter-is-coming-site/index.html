@@ -18,7 +18,7 @@
 .gotw .snowlayer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
 .gotw .sf{animation:gotw-fall linear infinite}
 @keyframes gotw-fall{from{transform:translate(0,-40px)}to{transform:translate(60px,1640px)}}
-@media (prefers-reduced-motion: reduce){.gotw .sf,.gotw .pennant,.gotw .struck::after{animation:none}}
+@media (prefers-reduced-motion: reduce){.gotw .pennant,.gotw .struck::after{animation:none}.gotw .sf{animation-duration:70s !important}}
 .gotw .invite{position:relative;z-index:2;max-width:640px;margin-inline:auto;padding:60px var(--pad-x) 56px;background:var(--card);-webkit-backdrop-filter:blur(7px) saturate(1.1);backdrop-filter:blur(7px) saturate(1.1);border:1px solid rgba(255,255,255,0.95);border-radius:50% 50% 18px 18px / 150px 150px 18px 18px;box-shadow:0 30px 60px -30px rgba(90,60,40,0.35),inset 0 0 0 6px rgba(255,255,255,0.35),inset 0 0 0 7px rgba(199,169,138,0.35);display:flex;flex-direction:column;align-items:center;gap:32px;text-align:center;box-sizing:border-box}
 .gotw .crest{color:var(--ice);width:30px;height:30px}
 .gotw .banner-wrap{position:relative;isolation:isolate;align-self:stretch;font-size:2rem;padding-inline:1.9em;margin-inline:calc(-1 * var(--pad-x) - 34px)}
